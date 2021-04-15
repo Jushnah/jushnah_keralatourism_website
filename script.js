@@ -26,10 +26,10 @@ function passwordChanged() {
     var enoughRegex = new RegExp("(?=.{8,}).*", "g");
     var pwd = document.getElementById("password");
     if (pwd.value.length == 0) {
-        strength.innerHTML = 'Type Password';
+        strength.innerHTML = 'Type Password! Password must be strong';
         return false;
     } else if (false == enoughRegex.test(pwd.value)) {
-        strength.innerHTML = 'More Characters';
+        strength.innerHTML = 'More Characters! Password must be strong';
         document.getElementById("password").style.border="2px solid red";
         return false;
     } else if (strongRegex.test(pwd.value)) {
@@ -37,11 +37,11 @@ function passwordChanged() {
         document.getElementById("password").style.border="2px solid green";
         return true;
     } else if (mediumRegex.test(pwd.value)) {
-        strength.innerHTML = '<span style="color:orange">Medium!</span>';
+        strength.innerHTML = '<span style="color:orange">Medium!Password must be strong</span>';
         document.getElementById("password").style.border="2px solid orange";
         return false;
     } else {
-        strength.innerHTML = '<span style="color:red">Weak!</span>';
+        strength.innerHTML = '<span style="color:red">Weak!Password must be strong</span>';
         document.getElementById("password").style.border="2px solid red";
         return false;
     }
@@ -49,7 +49,7 @@ function passwordChanged() {
 
 
 function valid(){
-    return (empty()&&eValidate()&&passwordChanged())
+    return (eValidate()&&passwordChanged()&&empty())
 }
 
 
