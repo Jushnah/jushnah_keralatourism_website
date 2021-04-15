@@ -49,7 +49,8 @@ function passwordChanged() {
 
 
 function valid(){
-    return (empty()&&eValidate()&&passwordChanged())
+    return (eValidate()&&passwordChanged()&&empty())
+}
 }
 
 
